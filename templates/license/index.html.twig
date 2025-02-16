@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <h1>Выгрузка лицензий</h1>
+
+    {{ form_start(form, {'attr': {'id':'upload-file-form'}}) }}
+    {{ form_row(form.file) }}
+    {{ form_row(form.submit) }}
+    {{ form_end(form) }}
+
+    <div class="m-3">
+        <pre id="licenses"></pre>
+    </div>
+</div>
+{% endblock %}
