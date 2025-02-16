@@ -2,6 +2,7 @@ document.getElementById('upload-file-form').addEventListener('submit', function 
     e.preventDefault();
 
     const formData = new FormData(this);
+    let licensesContent = document.getElementById('licenses')
 
     fetch('/get-licenses', {
         method: 'POST',
@@ -10,9 +11,9 @@ document.getElementById('upload-file-form').addEventListener('submit', function 
         .then(response => response.json())
         .then(data => {
             if (data.error) {
-                document.getElementById('licenses').textContent = JSON.stringify(data.error, null, 2);
+                licensesContent.textContent = JSON.stringify(data.error, null, 2);
             } else {
-                document.getElementById('licenses').textContent = JSON.stringify(data['licenses'], null, 2);
+                licensesContent.textContent = JSON.stringify(data['licenses'], null, 2);
             }
         })
         .catch(error => {
