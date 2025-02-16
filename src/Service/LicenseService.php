@@ -27,8 +27,6 @@ class LicenseService
         $parts = preg_split('/\n\d+\n/', $text);
         array_shift($parts);
 
-        $this->removeEverythingExceptInformationAboutLicenses($parts);
-
         if (!empty($parts)) {
             foreach ($parts as $part) {
                 $license = [];
@@ -82,21 +80,6 @@ class LicenseService
             // номер лицензии уже есть, значит не копируем
             return false;
         });
-    }
-
-    /**
-     * Удалить все, кроме информации о лицензиях
-     *
-     * @param array $parts
-     * @return void
-     */
-    private function removeEverythingExceptInformationAboutLicenses(array &$parts): void
-    {
-        foreach ($parts as $key => $part) {
-            if (!str_contains($part, 'Номер лицензии')) {
-                unset($parts[$key]);
-            }
-        }
     }
 
     /**
