@@ -47,9 +47,9 @@ class LicenseService
                     $license['activity'] = $this->searchByPattern($activityTypePattern, $part);
                     // лицензирующий орган
                     $license['issuerName'] = $this->searchByPattern($issuerNamePattern, $part);
-                }
 
-                $licenses[] = $license;
+                    $licenses[] = $license;
+                }
             }
         } else {
             return ['Licenses not found' => 'Лицензии не найдены'];
