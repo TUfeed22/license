@@ -7,13 +7,11 @@ document.getElementById('upload-file-form').addEventListener('submit', function 
         method: 'POST',
         body: formData
     })
-        .then(responce => responce.json())
+        .then(response => response.json())
         .then(data => {
-
             if (data.error) {
-                alert(data.error)
+                document.getElementById('licenses').textContent = JSON.stringify(data.error, null, 2);
             } else {
-
                 document.getElementById('licenses').textContent = JSON.stringify(data['licenses'], null, 2);
             }
         })

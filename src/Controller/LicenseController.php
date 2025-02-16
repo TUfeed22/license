@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Form\FileUploadType;
 use App\Service\LicenseService;
+use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -24,7 +25,7 @@ final class LicenseController extends AbstractController
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     #[Route('/get-licenses', name: 'get_licenses')]
     public function getLicenses(Request $request): Response
@@ -38,7 +39,7 @@ final class LicenseController extends AbstractController
 
         try {
             $licenses = new LicenseService()->getLicenses($file);
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             return new JsonResponse(['error' => $exception->getMessage()], 400);
         }
 
