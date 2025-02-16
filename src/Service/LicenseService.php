@@ -40,12 +40,12 @@ class LicenseService
                         continue;
                     }
 
+                    // лицензирующий орган
+                    $license['issuerName'] = $this->searchByPattern($issuerNamePattern, $part);
                     // дата начала действия лицензии
                     $license['dateStart'] = $this->searchByPattern($licenseDatePattern, $part);
                     // вид деятельности
                     $license['activity'] = $this->searchByPattern($activityTypePattern, $part);
-                    // лицензирующий орган
-                    $license['issuerName'] = $this->searchByPattern($issuerNamePattern, $part);
 
                     $licenses[] = $license;
                 }
