@@ -25,7 +25,6 @@ class LicenseService
 
         // преобразуем в массив строк
         $parts = preg_split('/\n\d+\n/', $text);
-        array_shift($parts);
 
         if (!empty($parts)) {
             foreach ($parts as $part) {
