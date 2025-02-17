@@ -64,7 +64,7 @@ class LicenseService
      * @param string $key
      * @return array
      */
-    public function removeDuplicatesByLicenseNumber(array $licenses, string $key): array
+    private function removeDuplicatesByLicenseNumber(array $licenses, string $key): array
     {
         // уникальные номера лицензий
         $uniqueLicenseNumber = [];
